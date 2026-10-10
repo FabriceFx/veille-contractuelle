@@ -1,0 +1,8 @@
+{
+  "typesAcceptes": {
+    "Commun.gs|TS2554|Expected 0-1 arguments, but got 2.": 1,
+    "Installation.gs|TS2365|Operator '+' cannot be applied to types 'unknown' and '1'.": 1,
+    "SocleErreurs.gs|TS2339|Property 'quoi' does not exist on type 'Error'.": 1,
+    "SocleErreurs.gs|TS2339|Property 'quoiFaire' does not exist on type 'Error'.": 1
+  }
+}

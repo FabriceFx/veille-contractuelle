@@ -13,6 +13,12 @@ const path = require('path');
 
 const RACINE = path.join(__dirname, '..');
 const DOSSIER = path.join(RACINE, 'apps-script');
+
+// Chez Google, l'heure locale d'un script est celle du fuseau de
+// appsscript.json ; Node prend celui de la machine. Sans cette ligne, le banc
+// passe sur un poste réglé sur le bon fuseau et échoue sur la CI en UTC — ou
+// pire, l'inverse. Le fuseau est imposé avant toute création de Date.
+process.env.TZ = JSON.parse(fs.readFileSync(path.join(DOSSIER, 'appsscript.json'), 'utf8')).timeZone || 'UTC';
 const FICHIERS = ['SocleDates.gs', 'SocleTexte.gs', 'SocleFeuilles.gs', 'SocleErreurs.gs',
   'SocleReprises.gs', 'SocleExecution.gs', 'SocleSecrets.gs', 'SocleApi.gs',
   'PlanPuisApplication.gs', 'Commun.gs', 'Echeances.gs', 'Contrats.gs',
